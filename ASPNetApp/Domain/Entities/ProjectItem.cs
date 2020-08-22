@@ -20,7 +20,7 @@ namespace ASPNetApp.Domain.Entities
         public override string Description { get; set; }
 
         [Display(Name = "Используемые технологии")]
-        public List<string> Technologies { get; set; }
+        public string Technologies { get; set; }
 
         [Display(Name = "Ключевое слово")]
         public string CodeWord { get; set; }

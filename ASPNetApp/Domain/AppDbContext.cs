@@ -15,8 +15,8 @@ namespace ASPNetApp.Domain
 
         public AppDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<ProjectItem> ProjectItems;
-        public DbSet<TextField> TextFields;
+        public DbSet<ProjectItem> ProjectItems { get; set; }
+        public DbSet<TextField> TextFields { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -64,6 +64,7 @@ namespace ASPNetApp.Domain
                 Title = "Контакты",
                 CodeWord = "PageContacts"
             });
+
         }
 
 

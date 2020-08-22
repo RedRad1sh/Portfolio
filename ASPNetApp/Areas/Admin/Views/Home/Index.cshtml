@@ -1,0 +1,40 @@
+﻿
+@model IQueryable<ProjectItem>
+@{
+    ViewData["Title"] = "Панель администратора";
+}
+
+<div>
+    <h1>@ViewData["Title"]</h1>
+    <div class="container">
+        <a asp-area="Admin" asp-controller="ProjectItems" asp-action="Edit" asp-route-id="">Добавить услугу</a>
+    </div>
+    @if (Model.Any())
+    {
+        <div class="container">
+            @foreach (var entity in Model)
+            {
+                <a asp-area="Admin" asp-controller="ProjectItems" asp-action="Edit" asp-route-id="@entity.Id">Редактировать</a>
+                <form style="display:inline-block" id="form-@entity.Id" asp-area="Admin" asp-controller="ProjectItems" asp-action="Delete" method="post">
+                    <input type="hidden" name="id" value="@entity.Id" />
+                    <a onclick="document.getElementById('form-@entity.Id').submit()">Удалить</a>
+                </form>
+
+                <a asp-area="Admin" asp-controller="Projects" asp-action="Index" asp-route-id="@entity.Id">
+                    @($"{entity.Title}")
+                </a>
+            }
+        </div>
+    }
+    <div class="container">
+        <h3>Редактирование страниц сайта</h3>
+        <a asp-area="Admin" asp-controller="TextFields" asp-action="Edit" asp-route-codeWord="PageIndex">Главная</a>
+        <a asp-area="Admin" asp-controller="TextFields" asp-action="Edit" asp-route-codeWord="PageProjects">Проекты</a>
+        <a asp-area="Admin" asp-controller="TextFields" asp-action="Edit" asp-route-codeWord="PageContacts">Контакты</a>
+    </div>
+    <div class="container">
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+            <input type="submit" name="logout" value="Выйти" />
+        </form>
+    </div>
+</div>

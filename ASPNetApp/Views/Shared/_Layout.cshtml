@@ -9,22 +9,17 @@
     @await Html.PartialAsync("MetatagsPartial")
     @await Html.PartialAsync("CssPartial")
 </head>
-<body class="left-sidebar is-preload">
-    <div id="page-wrapper">
+<body>
+    <div>
 
         @await Html.PartialAsync("HeaderPartial")
-
+        @await Html.PartialAsync("IntroductionPartial")
         <!-- Main -->
 
 
-        <section id="main" class="wrapper">
+        <section id="main">
             @RenderBody()
         </section>
-
-
-        <!-- Highlights -->
-        @*@await Html.PartialAsync("HighlightsPartial")*@
-        <!-- Footer -->
 
     </div>
     @await Html.PartialAsync("ScriptsPartial")

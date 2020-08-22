@@ -19,6 +19,51 @@ namespace ASPNetApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ASPNetApp.Domain.Entities.ProjectItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("AddingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CodeWord")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywords")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Technologies")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlToPreview")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProjectItems");
+                });
+
             modelBuilder.Entity("ASPNetApp.Domain.Entities.TextField", b =>
                 {
                     b.Property<Guid>("Id")
@@ -57,27 +102,27 @@ namespace ASPNetApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TextField");
+                    b.ToTable("TextFields");
 
                     b.HasData(
                         new
                         {
                             Id = new Guid("ea8bb180-3d17-4caa-b5ce-2f78a9ff6bf2"),
-                            AddingDate = new DateTime(2020, 8, 10, 16, 11, 13, 390, DateTimeKind.Utc).AddTicks(7577),
+                            AddingDate = new DateTime(2020, 8, 22, 14, 24, 56, 164, DateTimeKind.Utc).AddTicks(5778),
                             CodeWord = "PageIndex",
                             Title = "Главная"
                         },
                         new
                         {
                             Id = new Guid("0c291603-659c-4d83-bd2d-86541fd6f857"),
-                            AddingDate = new DateTime(2020, 8, 10, 16, 11, 13, 391, DateTimeKind.Utc).AddTicks(3718),
+                            AddingDate = new DateTime(2020, 8, 22, 14, 24, 56, 165, DateTimeKind.Utc).AddTicks(9057),
                             CodeWord = "PageProjects",
                             Title = "Проекты"
                         },
                         new
                         {
                             Id = new Guid("625c2e3f-f9cf-445b-8ae4-4365281bb5b2"),
-                            AddingDate = new DateTime(2020, 8, 10, 16, 11, 13, 391, DateTimeKind.Utc).AddTicks(3975),
+                            AddingDate = new DateTime(2020, 8, 22, 14, 24, 56, 165, DateTimeKind.Utc).AddTicks(9306),
                             CodeWord = "PageContacts",
                             Title = "Контакты"
                         });
@@ -113,7 +158,7 @@ namespace ASPNetApp.Migrations
                         new
                         {
                             Id = "182e19c5-2ab0-42b1-b854-b6badc35c459",
-                            ConcurrencyStamp = "763f4ff4-f22b-49ed-9ce2-677590512f3c",
+                            ConcurrencyStamp = "afcfeba3-6e24-4996-92fd-db098f04697c",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -212,13 +257,13 @@ namespace ASPNetApp.Migrations
                         {
                             Id = "84c95c59-b1bc-4321-81eb-b4ce82c4441b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2c390598-409e-4009-a279-22cce812dd84",
+                            ConcurrencyStamp = "2d483226-22cf-4826-a0e0-7b1b3ce5e7ab",
                             Email = "admin@radishportfolio.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "admin@radishportfolio.com",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOI2W2vxuIUHMFWSme8GEishBMvu5EGDRgETR+2Zh/bAfVwNf59K+K9KMyt6XRNm1w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEtP5XJQnSzyyIle5tXA90JF6D5Car7scYgoe6Pjhlg2BzqMzCTIglBCjx526UwORQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,

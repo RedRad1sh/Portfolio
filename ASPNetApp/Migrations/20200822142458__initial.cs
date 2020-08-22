@@ -47,7 +47,29 @@ namespace ASPNetApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TextField",
+                name: "ProjectItems",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Text = table.Column<string>(nullable: true),
+                    UrlToPreview = table.Column<string>(nullable: true),
+                    MetaTitle = table.Column<string>(nullable: true),
+                    MetaDescription = table.Column<string>(nullable: true),
+                    MetaKeywords = table.Column<string>(nullable: true),
+                    AddingDate = table.Column<DateTime>(nullable: false),
+                    Title = table.Column<string>(nullable: false),
+                    ShortDescription = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Technologies = table.Column<string>(nullable: true),
+                    CodeWord = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProjectItems", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TextFields",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
@@ -64,7 +86,7 @@ namespace ASPNetApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TextField", x => x.Id);
+                    table.PrimaryKey("PK_TextFields", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -176,21 +198,21 @@ namespace ASPNetApp.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "182e19c5-2ab0-42b1-b854-b6badc35c459", "763f4ff4-f22b-49ed-9ce2-677590512f3c", "admin", "ADMIN" });
+                values: new object[] { "182e19c5-2ab0-42b1-b854-b6badc35c459", "afcfeba3-6e24-4996-92fd-db098f04697c", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "84c95c59-b1bc-4321-81eb-b4ce82c4441b", 0, "2c390598-409e-4009-a279-22cce812dd84", "admin@radishportfolio.com", true, false, null, "admin@radishportfolio.com", "ADMIN", "AQAAAAEAACcQAAAAEOI2W2vxuIUHMFWSme8GEishBMvu5EGDRgETR+2Zh/bAfVwNf59K+K9KMyt6XRNm1w==", null, false, "", false, "admin" });
+                values: new object[] { "84c95c59-b1bc-4321-81eb-b4ce82c4441b", 0, "2d483226-22cf-4826-a0e0-7b1b3ce5e7ab", "admin@radishportfolio.com", true, false, null, "admin@radishportfolio.com", "ADMIN", "AQAAAAEAACcQAAAAEEtP5XJQnSzyyIle5tXA90JF6D5Car7scYgoe6Pjhlg2BzqMzCTIglBCjx526UwORQ==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
-                table: "TextField",
+                table: "TextFields",
                 columns: new[] { "Id", "AddingDate", "CodeWord", "Description", "MetaDescription", "MetaKeywords", "MetaTitle", "ShortDescription", "Text", "Title", "UrlToPreview" },
                 values: new object[,]
                 {
-                    { new Guid("ea8bb180-3d17-4caa-b5ce-2f78a9ff6bf2"), new DateTime(2020, 8, 10, 16, 11, 13, 390, DateTimeKind.Utc).AddTicks(7577), "PageIndex", null, null, null, null, null, null, "Главная", null },
-                    { new Guid("0c291603-659c-4d83-bd2d-86541fd6f857"), new DateTime(2020, 8, 10, 16, 11, 13, 391, DateTimeKind.Utc).AddTicks(3718), "PageProjects", null, null, null, null, null, null, "Проекты", null },
-                    { new Guid("625c2e3f-f9cf-445b-8ae4-4365281bb5b2"), new DateTime(2020, 8, 10, 16, 11, 13, 391, DateTimeKind.Utc).AddTicks(3975), "PageContacts", null, null, null, null, null, null, "Контакты", null }
+                    { new Guid("ea8bb180-3d17-4caa-b5ce-2f78a9ff6bf2"), new DateTime(2020, 8, 22, 14, 24, 56, 164, DateTimeKind.Utc).AddTicks(5778), "PageIndex", null, null, null, null, null, null, "Главная", null },
+                    { new Guid("0c291603-659c-4d83-bd2d-86541fd6f857"), new DateTime(2020, 8, 22, 14, 24, 56, 165, DateTimeKind.Utc).AddTicks(9057), "PageProjects", null, null, null, null, null, null, "Проекты", null },
+                    { new Guid("625c2e3f-f9cf-445b-8ae4-4365281bb5b2"), new DateTime(2020, 8, 22, 14, 24, 56, 165, DateTimeKind.Utc).AddTicks(9306), "PageContacts", null, null, null, null, null, null, "Контакты", null }
                 });
 
             migrationBuilder.InsertData(
@@ -256,7 +278,10 @@ namespace ASPNetApp.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "TextField");
+                name: "ProjectItems");
+
+            migrationBuilder.DropTable(
+                name: "TextFields");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

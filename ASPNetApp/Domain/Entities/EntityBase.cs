@@ -23,7 +23,7 @@ namespace ASPNetApp.Domain.Entities
         [Display(Name = "Описание")]
         public virtual string Description { get; set; }
 
-        [Display(Name = "Соддержание")]
+        [Display(Name = "Содержание")]
         public virtual string Text { get; set; }
 
         [Display(Name = "Ссылка на картинку")]

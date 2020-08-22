@@ -19,7 +19,7 @@ using Microsoft.Extensions.Hosting;
 namespace ASPNetApp
 {
 
-    
+
     public class Startup
     {
         public IConfiguration Configuration { get; }
@@ -36,7 +36,7 @@ namespace ASPNetApp
             services.AddTransient<IProjectItemsRepository, EFServiceProjectItemsRepository>();
             services.AddTransient<ITextFieldsRepository, EFServiceTextFieldsRepository>();
             services.AddTransient<DataManager>();
-            
+
             // Подключение сервиса базы данных
             services.AddDbContext<AppDbContext>(x => x.UseSqlServer(Config.ConnectionString));
 
@@ -60,8 +60,16 @@ namespace ASPNetApp
                 options.SlidingExpiration = true;
             });
 
+            services.AddAuthorization(x =>
+            {
+                x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
+            });
+
             // Сервис поддержки контроллеров и представлений
-            services.AddControllersWithViews().
+            services.AddControllersWithViews(x =>
+            {
+                x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
+            }).
                 SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
 
             //services.AddMvc();
@@ -90,6 +98,7 @@ namespace ASPNetApp
             // регистрация маршрутов: эндпоинтов
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("admin", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
 
