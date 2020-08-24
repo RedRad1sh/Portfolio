@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace ASPNetApp.Areas.Admin.Controllers
 {
@@ -31,6 +32,7 @@ namespace ASPNetApp.Areas.Admin.Controllers
         {
             if(ModelState.IsValid)
             {
+                //textFieldModel.Text = HttpUtility.HtmlEncode(textFieldModel.Text);
                 DataManager.TextFields.SaveTextField(textFieldModel);
                 return RedirectToAction(nameof(HomeController.Index), nameof(HomeController).CutController());
             }

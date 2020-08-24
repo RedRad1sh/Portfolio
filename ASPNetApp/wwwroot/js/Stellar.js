@@ -657,4 +657,6 @@
 
 	// Expose the plugin class so it can be modified
 	window.Stellar = Plugin;
+
+
 }(jQuery, this, document));

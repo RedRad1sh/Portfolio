@@ -14,11 +14,12 @@
 
         @await Html.PartialAsync("HeaderPartial")
         @await Html.PartialAsync("IntroductionPartial")
+        @RenderBody()
         <!-- Main -->
 
 
         <section id="main">
-            @RenderBody()
+            @*@RenderBody()*@
         </section>
 
     </div>

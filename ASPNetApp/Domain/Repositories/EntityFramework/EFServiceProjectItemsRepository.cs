@@ -26,7 +26,6 @@ namespace ASPNetApp.Domain.Repositories.EntityFramework
         public IQueryable<ProjectItem> GetAllProjectItems()
         {
             return Context.ProjectItems;
-
         }
 
         public ProjectItem GetProjectItemByCodeWord(string codeWord)

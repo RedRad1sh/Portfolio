@@ -1,10 +1,11 @@
 ﻿@model TextField
 
+
 @{
     ViewData["Title"] = "Редактирование страниц сайта";
 }
 
-<script src="~/js/ckeditor/ckeditor.js"></script>
+<script src="~/js/ckeditor5-build-classic/ckeditor.js"></script>
 
 <div class="container">
     <h1>Редактирование полей сайта</h1>
@@ -21,7 +22,7 @@
             </div>
             <div class="container">
                 <label asp-for="Text"></label>
-                <textarea asp-for="Text"></textarea>
+                <textarea id="editor" asp-for="Text"></textarea>
                 <span asp-validation-for="Text"></span>
             </div>
             <div class="container">
@@ -45,8 +46,21 @@
 </div>
 
 <script type="text/javascript">
-    window.onload = function(){
+    @*window.onload = function(){
        var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Text)');
-      newCKEdit.updateElement();
-    }
+        CKEDITOR.editorConfig = function (config) {
+            config.allowedContent = true;
+            config.extraAllowedContent = '*(*);*{*}';
+        };
+        newCKEdit.updateElement();
+    }*@
+
+    ClassicEditor
+        .create(document.querySelector('#Text'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 </script>
