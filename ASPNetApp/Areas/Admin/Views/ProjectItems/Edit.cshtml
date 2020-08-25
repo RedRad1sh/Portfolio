@@ -10,7 +10,7 @@
 <div class="container">
     <h1>Редактирование проекта</h1>
     <div class="container">
-        <form asp-area="Admin" asp-controller="TextFields" asp-action="Edit" method="post" enctype="multipart/form-data">
+        <form asp-area="Admin" asp-controller="ProjectItems" asp-action="Edit" method="post" enctype="multipart/form-data">
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="AddingDate" />
             <input type="hidden" asp-for="CodeWord" />
@@ -39,7 +39,7 @@
                 <label asp-for="UrlToPreview"></label>
                 <input type="file" name="UrlToPreview" asp-for="UrlToPreview" />
                 <div>
-                    <img src="~/images/@Model.UrlToPreview" />
+                    <img style="width:400px" src="~/images/@Model.UrlToPreview" />
                 </div>
             </div>
             <div class="container">

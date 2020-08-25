@@ -22,7 +22,7 @@
             </div>
             <div class="container">
                 <label asp-for="Text"></label>
-                <textarea id="editor" asp-for="Text"></textarea>
+                <textarea asp-for="Text" style="width: auto; height: 200px; slide"></textarea>
                 <span asp-validation-for="Text"></span>
             </div>
             <div class="container">
@@ -44,23 +44,3 @@
         </form>
     </div>
 </div>
-
-<script type="text/javascript">
-    @*window.onload = function(){
-       var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Text)');
-        CKEDITOR.editorConfig = function (config) {
-            config.allowedContent = true;
-            config.extraAllowedContent = '*(*);*{*}';
-        };
-        newCKEdit.updateElement();
-    }*@
-
-    ClassicEditor
-        .create(document.querySelector('#Text'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-</script>
