@@ -5,7 +5,7 @@
 }
 
 
-<script src="~/js/ckeditor/ckeditor.js"></script>
+<script src="~/js/ckeditor5-build-classic/ckeditor.js"></script>
 
 <div class="container">
     <h1>Редактирование проекта</h1>
@@ -22,7 +22,7 @@
             </div>
             <div class="container">
                 <label asp-for="Text"></label>
-                <textarea asp-for="Text"></textarea>
+                <textarea asp-for="Text" class="ckedit"></textarea>
                 <span asp-validation-for="Text"></span>
             </div>
             <div class="container">
@@ -61,10 +61,13 @@
         </form>
     </div>
 </div>
-
-<script type="text/javascript">
-    window.onload = function(){
-       var newCKEdit = CKEDITOR.replace('@Html.IdFor(x=>x.Text)');
-      newCKEdit.updateElement();
-    }
+<script>
+    ClassicEditor
+        .create(document.querySelector('#Text'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 </script>

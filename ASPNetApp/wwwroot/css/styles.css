@@ -364,3 +364,7 @@ footer .text-muted {
         height: 9vw;
     }
 }
+
+.ckedit{
+    height: 500px;
+}

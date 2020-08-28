@@ -8,6 +8,7 @@
 <head>
     @await Html.PartialAsync("MetatagsPartial")
     @await Html.PartialAsync("CssPartial")
+    @await Html.PartialAsync("ScriptsPartial")
 </head>
 <body>
     <div>
@@ -17,13 +18,7 @@
         @RenderBody()
         <!-- Main -->
 
-
-        <section id="main">
-            @*@RenderBody()*@
-        </section>
-
     </div>
-    @await Html.PartialAsync("ScriptsPartial")
 
     @await Html.PartialAsync("FooterPartial")
 </body>

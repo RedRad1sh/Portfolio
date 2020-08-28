@@ -1,0 +1,32 @@
+﻿@model DataManager
+
+
+<section class="bg-light">
+    <hr>
+    <div class="container mr-auto">
+        <h1 align="center">Мои проекты</h1>
+    </div>
+    <hr>
+    <div class="grid-posts mt-1">
+        <div class="container">
+            <div class="row row-cols-2 row-cols-md-3">
+
+                @foreach (var project in Model.ProjectItems.GetAllProjectItems())
+                {
+                    <div class="col mb-4">
+
+                        <div class="card-body">
+                            <img src="~/images/@project.UrlToPreview" alt="...">
+                            <h5 class="card-title">@project.Title</h5>
+                            <p class="card-text">@project.ShortDescription</p>
+                            <button type="button" class="btn btn-primary">Github</button>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">@project.Technologies</small>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

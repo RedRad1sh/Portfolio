@@ -19,12 +19,14 @@ namespace ASPNetApp.Controllers
 
         public IActionResult Index()
         {
-            return View(DataManager.TextFields.GetTextFieldByCodeWord("PageIndex"));
+            return View(DataManager);
         }
 
         public IActionResult Contacts()
         {
             return View(DataManager.TextFields.GetTextFieldByCodeWord("PageContacts"));
         }
+
+
     }
 }

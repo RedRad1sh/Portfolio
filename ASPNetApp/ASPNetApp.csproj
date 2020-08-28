@@ -115,6 +115,8 @@
     <None Include="wwwroot\js\ckeditor5-build-classic\translations\vi.js" />
     <None Include="wwwroot\js\ckeditor5-build-classic\translations\zh-cn.js" />
     <None Include="wwwroot\js\ckeditor5-build-classic\translations\zh.js" />
+    <None Include="wwwroot\js\markitup\jquery.markitup.js" />
+    <None Include="wwwroot\js\markitup\sets\default\set.js" />
   </ItemGroup>
 
 </Project>

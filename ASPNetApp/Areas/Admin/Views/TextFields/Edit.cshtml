@@ -5,7 +5,8 @@
     ViewData["Title"] = "Редактирование страниц сайта";
 }
 
-<script src="~/js/ckeditor5-build-classic/ckeditor.js"></script>
+
+
 
 <div class="container">
     <h1>Редактирование полей сайта</h1>
@@ -22,7 +23,7 @@
             </div>
             <div class="container">
                 <label asp-for="Text"></label>
-                <textarea asp-for="Text" style="width: auto; height: 200px; slide"></textarea>
+                <textarea asp-for="Text" style="height: 200px; slide"></textarea>
                 <span asp-validation-for="Text"></span>
             </div>
             <div class="container">
@@ -44,3 +45,10 @@
         </form>
     </div>
 </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Text").markItUp(mySettings);
+    });
+</script>

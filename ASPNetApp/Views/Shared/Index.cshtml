@@ -1,5 +1,6 @@
-﻿@model TextField
+﻿@model DataManager
 
 <div>
-    @Html.Raw(HttpUtility.HtmlDecode(Model.Text))
+    @Html.Raw(HttpUtility.HtmlDecode(Model.TextFields.GetTextFieldByCodeWord("PageIndex").Text))
 </div>
+@await Html.PartialAsync("ProjectsPartial")
